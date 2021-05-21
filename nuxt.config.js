@@ -49,11 +49,8 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ['three'],
-  },
-
-  babel: {
-    presets() {
-      return [['@nuxt/babel-preset-app', { loose: true }]];
+    babel: {
+      plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
     },
   },
 };
