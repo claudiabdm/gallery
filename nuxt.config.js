@@ -51,6 +51,14 @@ export default {
     transpile: ['three'],
     babel: {
       plugins: [['@babel/plugin-proposal-private-methods', { loose: true }]],
+      compact: true,
+    },
+    extend(config) {
+      config.module.rules.push({
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /(node_modules)/,
+      });
     },
   },
 };

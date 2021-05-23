@@ -20,7 +20,6 @@ import {
   RepeatWrapping,
   Scene,
   SpotLight,
-  SpotLightHelper,
   Texture,
   TextureLoader,
   Vector3,
@@ -88,7 +87,7 @@ export default Vue.extend({
       this.wallMaterial = this.createWallMaterial({ width: 10, height: 2 });
 
       this.addControls();
-      this.addHelpers();
+      // this.addHelpers();
       this.addLight();
       this.addFloor();
       this.addCeiling();
@@ -163,22 +162,22 @@ export default Vue.extend({
     addFloor() {
       const geometry = this.plane;
       const map = this.loader.load(
-        require('~/assets/WoodFloor044_1K-JPG/WoodFloor044_1K_Color.jpg')
+        'public/WoodFloor044_1K-JPG/WoodFloor044_1K_Color.jpg'
       );
       const normalMap = this.loader.load(
-        require('~/assets/WoodFloor044_1K-JPG/WoodFloor044_1K_Normal.jpg')
+        'public/WoodFloor044_1K-JPG/WoodFloor044_1K_Normal.jpg'
       );
       const displacementMap = this.loader.load(
-        require('~/assets/WoodFloor044_1K-JPG/WoodFloor044_1K_Displacement.jpg')
+        'public/WoodFloor044_1K-JPG/WoodFloor044_1K_Displacement.jpg'
       );
       const roughnessMap = this.loader.load(
-        require('~/assets/WoodFloor044_1K-JPG/WoodFloor044_1K_Roughness.jpg')
+        'public/WoodFloor044_1K-JPG/WoodFloor044_1K_Roughness.jpg'
       );
       const metalnessMap = this.loader.load(
-        require('~/assets/WoodFloor044_1K-JPG/WoodFloor044_1K_Metalness.jpg')
+        'public/WoodFloor044_1K-JPG/WoodFloor044_1K_Metalness.jpg'
       );
       const aoMap = this.loader.load(
-        require('~/assets/WoodFloor044_1K-JPG/WoodFloor044_1K_AmbientOcclusion.jpg')
+        'public/WoodFloor044_1K-JPG/WoodFloor044_1K_AmbientOcclusion.jpg'
       );
 
       const maps: { [key: string]: Texture } = {
@@ -208,25 +207,22 @@ export default Vue.extend({
     addCeiling() {
       const geometry = this.plane;
       const map = this.loader.load(
-        require('~/assets/Plaster001_2k-JPG/Plaster001_2k_Color.jpg')
+        'public/Plaster001_2k-JPG/Plaster001_2k_Color.jpg'
       );
       const normalMap = this.loader.load(
-        require('~/assets/Plaster001_2k-JPG/Plaster001_2k_Normal.jpg')
+        'public/Plaster001_2k-JPG/Plaster001_2k_Normal.jpg'
       );
       const displacementMap = this.loader.load(
-        require('~/assets/Plaster001_2k-JPG/Plaster001_2k_Displacement.jpg')
+        'public/Plaster001_2k-JPG/Plaster001_2k_Displacement.jpg'
       );
       const roughnessMap = this.loader.load(
-        require('~/assets/Plaster001_2k-JPG/Plaster001_2k_Roughness.jpg')
+        'public/Plaster001_2k-JPG/Plaster001_2k_Roughness.jpg'
       );
-      // const metalnessMap = this.loader.load(
-      //   require('~/assets/Plaster001_2k-JPG/Plaster001_2k_Metalness.jpg')
+      // const metalnessMap = this.loader.load( 'public/Plaster001_2k-JPG/Plaster001_2k_Metalness.jpg'
       // );
-      // const aoMap = this.loader.load(
-      //   require('~/assets/Plaster001_2k-JPG/Plaster001_2k_AmbientOcclusion.jpg')
+      // const aoMap = this.loader.load( 'public/Plaster001_2k-JPG/Plaster001_2k_AmbientOcclusion.jpg'
       // );
-      // const emissiveMap = this.loader.load(
-      //   require('~/assets/Plaster001_2k-JPG/Plaster001_2k_Emission.jpg')
+      // const emissiveMap = this.loader.load( 'public/Plaster001_2k-JPG/Plaster001_2k_Emission.jpg'
       // );
 
       const maps: { [key: string]: Texture } = {
@@ -314,8 +310,7 @@ export default Vue.extend({
       pointLight.target = image;
       this.scene.add(pointLight);
       this.scene.add(pointLight.target);
-      const lightHelper = new SpotLightHelper(pointLight, 'blue');
-      this.scene.add(lightHelper);
+
       wall.add(image);
       this.scene.add(wall);
       this.objects.push(wall);
@@ -348,19 +343,19 @@ export default Vue.extend({
     },
     createWallMaterial({ width = 0, height = 0 }): MeshStandardMaterial {
       const map = this.loader.load(
-        require('~/assets/Bricks060_2K-JPG/Bricks060_2K_Color.jpg')
+        'public/Bricks060_2K-JPG/Bricks060_2K_Color.jpg'
       );
       const normalMap = this.loader.load(
-        require('~/assets/Bricks060_2K-JPG/Bricks060_2K_Normal.jpg')
+        'public/Bricks060_2K-JPG/Bricks060_2K_Normal.jpg'
       );
       const displacementMap = this.loader.load(
-        require('~/assets/Bricks060_2K-JPG/Bricks060_2K_Displacement.jpg')
+        'public/Bricks060_2K-JPG/Bricks060_2K_Displacement.jpg'
       );
       const roughnessMap = this.loader.load(
-        require('~/assets/Bricks060_2K-JPG/Bricks060_2K_Roughness.jpg')
+        'public/Bricks060_2K-JPG/Bricks060_2K_Roughness.jpg'
       );
       const aoMap = this.loader.load(
-        require('~/assets/Bricks060_2K-JPG/Bricks060_2K_AmbientOcclusion.jpg')
+        'public/Bricks060_2K-JPG/Bricks060_2K_AmbientOcclusion.jpg'
       );
       const maps: { [key: string]: Texture } = {
         normalMap,
